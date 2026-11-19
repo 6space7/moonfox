@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ismail-q | 3D Assets for Unity</title>
+<meta name="description" content="Ismail-q creates realistic, game-ready 3D assets for Unity: props, weapons, characters and environments, built at real-world scale with PBR textures.">
+<meta property="og:title" content="Ismail-q | 3D Assets for Unity">
+<meta property="og:description" content="Realistic, game-ready 3D assets for Unity.">
+<meta property="og:image" content="images/hero.jpg">
+<meta name="theme-color" content="#121214">
+<link rel="icon" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #121214;
+    --surface: #1b1b1e;
+    --line: #2a2a2f;
+    --text: #ece8e1;
+    --muted: #a39f97;
+    --accent: #c8402f;
+    --accent-soft: rgba(200, 64, 47, 0.12);
+    --radius: 14px;
+    --max: 1120px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 400 16px/1.6 "Inter", system-ui, -apple-system, Segoe UI, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+  header { position: sticky; top: 0; z-index: 10; background: rgba(18,18,20,0.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { font: 600 26px/1 "Cormorant Garamond", serif; letter-spacing: 0.06em; text-decoration: none; }
+  .brand span { color: var(--accent); }
+  nav a { color: var(--muted); text-decoration: none; margin-left: 28px; font-size: 15px; }
+  nav a:hover { color: var(--text); }
+
+  .hero { padding: 88px 0 72px; display: grid; grid-template-columns: 1fr 1.15fr; gap: 56px; align-items: center; }
+  .eyebrow { color: var(--accent); font-weight: 600; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 16px; }
+  h1 { font: 600 clamp(40px, 5.2vw, 64px)/1.05 "Cormorant Garamond", serif; margin: 0 0 20px; }
+  .lead { color: var(--muted); font-size: 18px; max-width: 30em; margin: 0 0 32px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 999px; font-weight: 500; font-size: 15px; text-decoration: none; transition: transform .15s ease, background .15s ease; }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #d84a37; }
+  .btn-ghost { border: 1px solid var(--line); color: var(--text); }
+  .btn-ghost:hover { background: var(--surface); }
+  .hero-img { border-radius: var(--radius); border: 1px solid var(--line); box-shadow: 0 30px 80px rgba(0,0,0,0.45); }
+
+  section { padding: 72px 0; border-top: 1px solid var(--line); }
+  h2 { font: 600 clamp(30px, 3.6vw, 42px)/1.1 "Cormorant Garamond", serif; margin: 0 0 12px; }
+  .section-lead { color: var(--muted); max-width: 40em; margin: 0 0 40px; }
+
+  .product { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
+  .product img { border-radius: 10px; }
+  .status { display: inline-block; background: var(--accent-soft); color: #f0a296; font-size: 13px; font-weight: 500; padding: 5px 12px; border-radius: 999px; margin-bottom: 14px; }
+  .product h3 { font: 600 32px/1.15 "Cormorant Garamond", serif; margin: 0 0 12px; }
+  .product p { color: var(--muted); margin: 0 0 18px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; padding: 0; list-style: none; }
+  .chips li { border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; font-size: 13px; color: var(--text); }
+  .price { font-size: 26px; font-weight: 600; margin: 0 0 18px; }
+
+  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; margin-top: 40px; }
+  .gallery figure { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  .gallery img { aspect-ratio: 16 / 9; object-fit: cover; width: 100%; }
+  .gallery figcaption { padding: 12px 16px; display: flex; justify-content: space-between; font-size: 14px; }
+  .gallery figcaption span { color: var(--muted); }
+
+  .features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .feature { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+  .feature b { display: block; font-weight: 600; margin-bottom: 6px; }
+  .feature p { color: var(--muted); margin: 0; font-size: 15px; }
+
+  .contact { text-align: center; }
+  .contact .section-lead { margin-left: auto; margin-right: auto; }
+  footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-size: 14px; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+  @media (max-width: 860px) {
+    .hero, .product { grid-template-columns: 1fr; }
+    .hero { padding-top: 48px; gap: 36px; }
+    .features { grid-template-columns: repeat(2, 1fr); }
+    nav a { margin-left: 18px; }
+  }
+  @media (max-width: 520px) {
+    .wrap { padding: 0 16px; }
+    .features { grid-template-columns: 1fr; }
+    nav a:not(:last-child) { display: none; }
+    .gallery { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#">ISMAIL<span>-</span>Q</a>
+    <nav>
+      <a href="#assets">Assets</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <div>
+      <p class="eyebrow">3D assets for Unity</p>
+      <h1>Realistic, game-ready 3D assets</h1>
+      <p class="lead">Props, weapons, characters and environments for Unity games and cinematics. Built at real-world scale, with PBR textures and prefabs that are ready to drop into your scene.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://assetstore.unity.com/publishers/167132" target="_blank" rel="noopener">Visit the Asset Store page</a>
+        <a class="btn btn-ghost" href="#assets">See the latest pack</a>
+      </div>
+    </div>
+    <img class="hero-img" src="images/samurai-cover.jpg" alt="Seven Japanese swords half drawn from their scabbards on a dark cloth" width="1600" height="900">
+  </div>
+
+  <section id="assets">
+    <div class="wrap">
+      <h2>Latest release</h2>
+      <p class="section-lead">Every pack is built and tested in Unity before it ships. More packs are on the way.</p>
+
+      <article class="product">
+        <img src="images/samurai-cover.jpg" alt="Samurai Sword Pack: seven swords in a row" width="1600" height="900" loading="lazy">
+        <div>
+          <span class="status">In review · coming soon to the Unity Asset Store</span>
+          <h3>Samurai Sword Pack: 7 Japanese Swords</h3>
+          <p>Odachi, tachi, katana, shirasaya, ninjato, wakizashi and tanto, each with its own scabbard. The blades show a temper line and forging grain, the handles have silk wrapping over ray skin, and the sword and scabbard are separate objects, so you can animate a draw.</p>
+          <ul class="chips">
+            <li>7 swords + scabbards</li>
+            <li>2K PBR textures</li>
+            <li>URP · Built-in · HDRP</li>
+            <li>Real-world scale</li>
+            <li>Prefabs + demo scene</li>
+          </ul>
+          <p class="price">$24.99</p>
+          <a class="btn btn-primary" href="https://assetstore.unity.com/publishers/167132" target="_blank" rel="noopener">Follow on the Asset Store</a>
+        </div>
+      </article>
+
+      <div class="gallery">
+        <figure><img src="images/odachi.jpg" alt="Odachi with crimson silk wrap" loading="lazy" width="1200" height="675"><figcaption>Odachi <span>95 cm blade</span></figcaption></figure>
+        <figure><img src="images/tachi.jpg" alt="Tachi with gold fittings" loading="lazy" width="1200" height="675"><figcaption>Tachi <span>76 cm blade</span></figcaption></figure>
+        <figure><img src="images/katana.jpg" alt="Katana with black wrap" loading="lazy" width="1200" height="675"><figcaption>Katana <span>70 cm blade</span></figcaption></figure>
+        <figure><img src="images/shirasaya.jpg" alt="Shirasaya in plain wood" loading="lazy" width="1200" height="675"><figcaption>Shirasaya <span>70 cm blade</span></figcaption></figure>
+        <figure><img src="images/ninjato.jpg" alt="Straight-bladed ninjato in matte black" loading="lazy" width="1200" height="675"><figcaption>Ninjato <span>60 cm blade</span></figcaption></figure>
+        <figure><img src="images/wakizashi.jpg" alt="Wakizashi short sword" loading="lazy" width="1200" height="675"><figcaption>Wakizashi <span>50 cm blade</span></figcaption></figure>
+        <figure><img src="images/tanto.jpg" alt="Tanto dagger with red and gold scabbard" loading="lazy" width="1200" height="675"><figcaption>Tanto <span>27 cm blade</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <h2>What every pack includes</h2>
+      <p class="section-lead">Ismail-q makes 3D assets for Unity with one goal: they should look right and work the moment you import them.</p>
+      <div class="features">
+        <div class="feature"><b>Real-world scale</b><p>1 unit = 1 meter, with sensible pivots, so assets fit your scene without guesswork.</p></div>
+        <div class="feature"><b>PBR textures</b><p>Color, normal and metal/smoothness maps baked from detailed source materials.</p></div>
+        <div class="feature"><b>Ready-made prefabs</b><p>Drag-and-drop prefabs and a demo scene in every pack.</p></div>
+        <div class="feature"><b>Every pipeline</b><p>Materials for URP, Built-in and HDRP, tested in current Unity versions.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Questions or requests?</h2>
+      <p class="section-lead">For support or to suggest the next pack, get in touch through the Ismail-q publisher page on the Unity Asset Store.</p>
+      <a class="btn btn-primary" href="https://assetstore.unity.com/publishers/167132" target="_blank" rel="noopener">Contact via the Asset Store</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Ismail-q</span>
+    <span>Unity is a trademark of Unity Technologies. Ismail-q is an independent publisher.</span>
+  </div>
+</footer>
+</body>
+</html>
